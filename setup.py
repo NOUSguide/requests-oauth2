@@ -8,7 +8,7 @@ version = '0.2.0'
 setup(
     name='requests-oauth2',
     version=version,
-    description='Open Authentication 2 support to Python-requests HTTP library.',
+    description='OAuth2 support to Python-Requests',
     long_description=open('README.md').read(),
     author='Miguel Araujo',
     author_email='miguel.araujo.perez@gmail.com',
