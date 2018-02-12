@@ -1,13 +1,6 @@
 import requests
-try:
-    from urllib import quote, urlencode
-    from urlparse import parse_qs
-except ImportError:
-   from  urllib.parse import quote, urlencode, parse_qs
-try:
-    import simplejson as json
-except ImportError:
-    import json
+
+from six.moves.urllib.parse import quote, urlencode
 
 
 class OAuth2(object):
@@ -43,13 +36,5 @@ class OAuth2(object):
         data = {'redirect_uri': self.redirect_uri, 'client_id': self.client_id, 'client_secret': self.client_secret, 'code': code}
         data.update(kwargs)
         response = requests.post(url, data=data)
-
-        if isinstance(response.content, basestring):
-            try:
-                content = json.loads(response.content)
-            except ValueError:
-                content = parse_qs(response.content)
-        else:
-            content = response.content
-
-        return content
+        response.raise_for_status()
+        return response.json()
