@@ -3,16 +3,14 @@
 
 from setuptools import setup, find_packages
 
-version = '0.2.0'
+version = '0.3.0'
 
 setup(
     name='requests-oauth2',
     version=version,
     description='OAuth2 support to Python-Requests',
     long_description=open('README.md').read(),
-    author='Miguel Araujo',
-    author_email='miguel.araujo.perez@gmail.com',
-    url='http://github.com/maraujop/requests-oauth2',
+    url='http://github.com/NOUSguide/requests-oauth2',
     packages=find_packages(),
     install_requires=['requests', 'six'],
     license='BSD',
